@@ -7,10 +7,10 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.sunnyweather.android.R
-import com.sunnyweather.android.logic.model.Place
+import com.sunnyweather.android.logic.model.PlaceResponse
 import com.sunnyweather.android.ui.place.PlaceAdapter.ViewHolder
 
-class PlaceAdapter(val fragment: Fragment, val placeList: List<Place>) :
+class PlaceAdapter(val fragment: Fragment, val placeList: List<PlaceResponse.Place>) :
     RecyclerView.Adapter<ViewHolder>() {
 
     class ViewHolder(view : View) : RecyclerView.ViewHolder(view) {
