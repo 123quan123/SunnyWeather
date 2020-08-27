@@ -11,6 +11,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sunnyweather.android.R
+import com.sunnyweather.android.logic.model.Location
+import com.sunnyweather.android.logic.model.Place
 import kotlinx.android.synthetic.main.fragment_place.*
 
 class PlaceFragment : Fragment() {
@@ -31,6 +33,7 @@ class PlaceFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         var layoutManager = LinearLayoutManager(activity)
         recycleView.layoutManager = layoutManager
+        adapter = PlaceAdapter(this, placeViewModel.placeList)
         recycleView.adapter = adapter
         searchPlaceEdit.addTextChangedListener {
             val content = it.toString()
@@ -44,11 +47,31 @@ class PlaceFragment : Fragment() {
             }
         }
         placeViewModel.placeLiveData.observe(this, Observer {
-            val places = it.getOrNull()
+            var places = it.getOrNull()
             if (places != null) {
                 recycleView.visibility = View.VISIBLE
                 bgImageView.visibility = View.GONE
                 placeViewModel.placeList.clear()
+                val placess = ArrayList<Place>()
+//                placess.add(Place("北京", Location("123", "456"), "西区"))
+//                placess.add(Place("北京", Location("123", "456"), "西区"))
+//                placess.add(Place("北京", Location("123", "456"), "西区"))
+//                placess.add(Place("北京", Location("123", "456"), "西区"))
+//                placess.add(Place("北京", Location("123", "456"), "西区"))
+//                placess.add(Place("北京", Location("123", "456"), "西区"))
+//                placess.add(Place("北京", Location("123", "456"), "西区"))
+//                placess.add(Place("北京", Location("123", "456"), "西区"))
+//                placess.add(Place("北京", Location("123", "456"), "西区"))
+//                placess.add(Place("北京", Location("123", "456"), "西区"))
+//                placess.add(Place("北京", Location("123", "456"), "西区"))
+//                placess.add(Place("北京", Location("123", "456"), "西区"))
+//                placess.add(Place("北京", Location("123", "456"), "西区"))
+//                placess.add(Place("北京", Location("123", "456"), "西区"))
+//                placess.add(Place("北京", Location("123", "456"), "西区"))
+//                placess.add(Place("北京", Location("123", "456"), "西区"))
+//                placess.add(Place("北京", Location("123", "456"), "西区"))
+//                placess.add(Place("北京", Location("123", "456"), "西区"))
+//                placess.add(Place("北京", Location("123", "456"), "西区"))
                 placeViewModel.placeList.addAll(places)
                 adapter.notifyDataSetChanged()
             } else {
